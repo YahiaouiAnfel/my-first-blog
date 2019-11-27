@@ -1,21 +1,14 @@
-<html>
-    <head>
-        <title>Django Girls blog</title>
-    </head>
-    <body>
-        <div>
-            <h1><a href="/">Django Girls Blog</a></h1>
-        </div>
+{% extends 'blog/base.html' %}
+          {% block content %}
+            {% for post in posts %}
+                <div class="post">
+                    <div class="date">
+                        <p>published: {{ post.published_date }}</p>
+                    </div>
+                    <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
+                    <p>{{ post.text|linebreaksbr }}</p>
+                </div>
+            {% endfor %}
+        {% endblock %}
 
-{% for post in posts %}
-    <div>
-        <p>published: {{ post.published_date }}</p>
-        <h2><a href="">{{ post.title }}</a></h2>
-        <p>{{ post.text|linebreaksbr }}</p>
-        <!--linebreaksbrpasse le texte des articles dans un filtre pour convertir les sauts de ligne en paragraphes.-->
-    </div>
-{% endfor %}
-
-       
-    </body>
-</html>
+        <!--post.pk est l'abréviation de clé primaire, qui est un nom unique pour chaque enregistrement d'une base de données. Comme nous n’avons pas spécifié de clé primaire dans notre Postmodèle, Django en crée une pour nous (par défaut, un nombre qui augmente d’un pour chaque enregistrement, c’est-à-dire 1, 2, 3) et l’ajoute sous la forme d’un champ nommé pkpour chacun de nos enregistrements. des postes. Nous avons accès à la clé primaire par écrit post.pk, de la même façon nous avons accès à d' autres domaines -->

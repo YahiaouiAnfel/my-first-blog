@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.utils import timezone
 from .models import Post  # . = a dossier en cours
 # A view is a place where we put the "logic" of our application.
@@ -9,6 +9,8 @@ def post_list(request):
     #we created a function (def) called post_list that takes request and 
     #will return the value it gets from calling another function render that will render 
     #(put together) our template blog/post_list.html.
-
-
     #A QuerySet represents a collection of objects from your database.
+
+def post_detail(request,pk):
+    post = get_object_or_404(Post, pk=pk)
+    return render(request, 'blog/post_detail.html', {'post':post})
