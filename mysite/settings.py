@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'blog.apps.BlogConfig',#Après avoir créé une application, nous devons également indiquer à Django qu’elle doit l’utiliser
+    'blog.apps.BlogConfig',#Après avoir créé une application blog , nous devons également indiquer à Django qu’elle doit l’utiliser
 ]
 
 MIDDLEWARE = [

@@ -23,3 +23,5 @@ class Post(models.Model):#c'est un object
         return self.title
 
  #La dernière étape consiste à ajouter notre nouveau modèle à notre base de données. Nous devons d’abord faire savoir à Django que notre modèle a été modifié. (Nous venons de le créer!) Allez dans la fenêtre de votre console et tapez python manage.py makemigrations blog
+ #Django a préparé pour nous un fichier de migration que nous devons maintenant appliquer à notre base de données. Le type python manage.py migrate bloget la sortie doivent être comme suit:
+ 
