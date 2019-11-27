@@ -18,7 +18,8 @@ class Post(models.Model):#c'est un object
     def publish(self):
         self.published_date = timezone.now()
         self.save()
-
+        #Pour créer un objet, instanciez-le à l'aide d'arguments mot-clé dans la classe de modèle, puis appelez-le save()pour l'enregistrer dans la base de données.
+ 
     def __str__(self):#"dunder" (abréviation de "double-underscore").
         return self.title
 
